@@ -140,7 +140,7 @@ class FacebookAuth(BaseOAuth2):
                                        'the app')
 
             response = payload.read()
-            parsed_response = cgi.parse_qs(response)
+            parsed_response = simplejson.loads(response)
 
             access_token = parsed_response['access_token'][0]
             if 'expires' in parsed_response:
